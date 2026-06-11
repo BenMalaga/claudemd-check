@@ -5,7 +5,7 @@
 ### Regression tests for your CLAUDE.md.
 
 Your instructions file says *"always use pnpm"*, *"never commit to main"*,
-*"every new file ends with a license header"* — but do you actually know which
+*"every new file ends with a license header"*. But do you actually know which
 rules your agent obeys, how often, and whether last week's edit (or a model
 update) **silently broke rule 7?**
 
@@ -20,15 +20,15 @@ update) **silently broke rule 7?**
 ---
 
 Every Claude Code user has a CLAUDE.md. Almost nobody tests it. Rules
-accumulate, contradict, decay — and the only feedback loop is vibes. There are
+accumulate, contradict, decay. The only feedback loop is vibes. There are
 eval harnesses for *skills* (skillgrade, promptfoo, Anthropic's skill-creator),
-but the instructions file itself — the thing **every** session loads — has no
+but the instructions file itself (the thing **every** session loads) has no
 test runner.
 
 claudemd-check is that runner. You write scenario probes (a prompt + the
 deterministic footprint an *adherent* run leaves behind), it executes each one
 N times against **real headless Claude Code sessions** in throwaway workspaces,
-and reports per-rule adherence rates — diffed against a saved baseline, wired
+and reports per-rule adherence rates, diffed against a saved baseline, wired
 for CI.
 
 ```
@@ -96,13 +96,13 @@ and Node ≥ 18. Zero npm dependencies.
 
 Each run gets a fresh temp workspace (inline `files` and/or a `fixture`
 directory, plus the CLAUDE.md under test), so runs never contaminate each other
-— or your repo.
+(or your repo).
 
-**Assertions** (all deterministic — no LLM judges, no flaky grading):
+**Assertions** (all deterministic: no LLM judges, no flaky grading):
 
 | Type | Checks |
 | --- | --- |
-| `transcript_match` / `transcript_not_match` | Regex over **the agent's own actions** — its text and tool calls (commands run, files written). Deliberately excludes the rule text itself and tool results, so "never say X" isn't false-flagged by the agent reading the rule. |
+| `transcript_match` / `transcript_not_match` | Regex over **the agent's own actions**: its text and tool calls (commands run, files written). Deliberately excludes the rule text itself and tool results, so "never say X" isn't false-flagged by the agent reading the rule. |
 | `file_exists` / `file_absent` | Workspace state after the run. |
 | `file_contains` / `file_not_contains` | Regex over a produced file. |
 | `command` | Any shell command, run in the workspace; exit 0 = pass. The escape hatch that can verify anything. |
@@ -116,7 +116,7 @@ directory, plus the CLAUDE.md under test), so runs never contaminate each other
 ```
 
 Save a baseline once (`claudemd-check --save-baseline`, commit it), and every
-subsequent run prints per-rule deltas — so a CLAUDE.md edit or a new model
+subsequent run prints per-rule deltas, so a CLAUDE.md edit or a new model
 release that drops "never touch main" from 100% to 60% **fails the build**, with
 the rule named.
 
@@ -129,7 +129,7 @@ the rule named.
 
 claudemd-check tests **instruction adherence** in Claude Code. It does not test
 skill triggering (use [skillgrade](https://github.com/mgechev/skillgrade) or
-promptfoo for SKILL.md files) and does not grade output *quality* — it checks
+promptfoo for SKILL.md files) and does not grade output *quality*. It checks
 the deterministic footprint of rule-following, which is what you can actually
 regress on. Hooks and slash-command coverage are the roadmap.
 
