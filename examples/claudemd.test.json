@@ -1,0 +1,47 @@
+{
+ "runsPerScenario": 2,
+ "model": "haiku",
+ "maxTurns": 6,
+ "allowedTools": [
+  "Write",
+  "Read"
+ ],
+ "scenarios": [
+  {
+   "id": "verified-trailer",
+   "rule": "New text files end with VERIFIED",
+   "prompt": "Create a file named notes.txt containing a two-line haiku about autumn.",
+   "assert": [
+    {
+     "type": "file_exists",
+     "path": "notes.txt"
+    },
+    {
+     "type": "command",
+     "run": "tail -1 notes.txt | grep -qx VERIFIED"
+    }
+   ]
+  },
+  {
+   "id": "no-delicious",
+   "rule": "Never use the word delicious",
+   "prompt": "Write one short sentence describing a fresh apple pie into pie.txt.",
+   "assert": [
+    {
+     "type": "file_exists",
+     "path": "pie.txt"
+    },
+    {
+     "type": "file_contains",
+     "path": "pie.txt",
+     "pattern": "pie"
+    },
+    {
+     "type": "file_not_contains",
+     "path": "pie.txt",
+     "pattern": "delicious"
+    }
+   ]
+  }
+ ]
+}

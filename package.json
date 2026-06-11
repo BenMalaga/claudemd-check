@@ -1,0 +1,42 @@
+{
+  "name": "claudemd-check",
+  "version": "0.1.0",
+  "description": "Regression tests for your CLAUDE.md. Probe each rule with real headless agent runs, get per-rule adherence rates, and catch the edit (or model update) that silently broke rule 7.",
+  "type": "module",
+  "bin": {
+    "claudemd-check": "bin/claudemd-check.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "examples"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "claude-code",
+    "claude",
+    "agents",
+    "testing",
+    "eval",
+    "regression",
+    "ai",
+    "instructions",
+    "adherence",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenMalaga/claudemd-check.git"
+  },
+  "homepage": "https://github.com/BenMalaga/claudemd-check#readme",
+  "bugs": {
+    "url": "https://github.com/BenMalaga/claudemd-check/issues"
+  },
+  "author": "Ben Malaga",
+  "license": "MIT"
+}
