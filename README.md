@@ -9,7 +9,8 @@ Your instructions file says *"always use pnpm"*, *"never commit to main"*,
 rules your agent obeys, how often, and whether last week's edit (or a model
 update) **silently broke rule 7?**
 
-[![release](https://img.shields.io/github/v/release/BenMalaga/claudemd-check?color=blue&label=release)](https://github.com/BenMalaga/claudemd-check/releases)
+[![npm](https://img.shields.io/npm/v/claudemd-check?color=cb3837&label=npm)](https://www.npmjs.com/package/claudemd-check)
+[![CI](https://github.com/BenMalaga/claudemd-check/actions/workflows/test.yml/badge.svg)](https://github.com/BenMalaga/claudemd-check/actions)
 ![node](https://img.shields.io/badge/node-%E2%89%A518-339933)
 ![deps](https://img.shields.io/badge/dependencies-0-success)
 ![license](https://img.shields.io/badge/license-MIT-yellow)
